@@ -1,0 +1,48 @@
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-container input[type='text'] {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.dropdown-container .arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: solid #aaa;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.dropdown label input[type='checkbox'] {
+  margin-right: 8px;
+}

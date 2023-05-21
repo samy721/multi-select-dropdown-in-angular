@@ -1,0 +1,21 @@
+<div>
+  <div (click)="toggleDropdown()">
+    <input
+      type="text"
+      [(ngModel)]="selectedOptionsText"
+      readonly
+      placeholder="Select options"
+    />
+    <span class="arrow"></span>
+  </div>
+  <div *ngIf="dropdownVisible" class="dropdown">
+    <label *ngFor="let option of options">
+      <input
+        type="checkbox"
+        [(ngModel)]="option.checked"
+        (change)="onOptionChange()"
+      />
+      {{ option.name }}
+    </label>
+  </div>
+</div>

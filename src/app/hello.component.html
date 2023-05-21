@@ -1,0 +1,34 @@
+<label for="type">Type:</label>
+<select
+  id="type"
+  name="type"
+  [(ngModel)]="selectedType"
+  (change)="onTypeChange()"
+  class="form-control"
+>
+  <option value="input">Input box</option>
+  <option value="single">Single select</option>
+  <option value="multi">Multi select</option>
+  <option value="date">Date</option>
+</select>
+
+<div
+  *ngIf="selectedType === 'single' || selectedType === 'multi'"
+  class="form-group"
+>
+  <label for="options">Options:</label>
+  <select id="options" name="options" class="form-control">
+    <option *ngFor="let option of options" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+
+  <div *ngIf="editingOption" class="form-inline">
+    <input type="text" [(ngModel)]="newOption" class="form-control" />
+    <button (click)="addOption()" class="btn btn-primary">Add</button>
+    <button (click)="cancelOption()" class="btn btn-default">Cancel</button>
+  </div>
+  <div *ngIf="!editingOption">
+    <button (click)="editOption()" class="btn btn-primary">Add Option</button>
+  </div>
+</div>
