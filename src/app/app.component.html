@@ -1,15 +1,27 @@
-<div>
+<div class="dropdown-container">
   <div (click)="toggleDropdown()">
     <input
       type="text"
       [(ngModel)]="selectedOptionsText"
       readonly
       placeholder="Select options"
+      class="form-control"
     />
     <span class="arrow"></span>
   </div>
   <div *ngIf="dropdownVisible" class="dropdown">
-    <label *ngFor="let option of options">
+    <label>
+      <input
+        type="checkbox"
+        [(ngModel)]="selectAllChecked"
+        (change)="toggleSelectAll()"
+      />
+      Select All
+    </label>
+    <label
+      *ngFor="let option of options"
+      [ngClass]="{ selected: option.checked }"
+    >
       <input
         type="checkbox"
         [(ngModel)]="option.checked"
